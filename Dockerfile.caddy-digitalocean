@@ -1,6 +1,6 @@
 FROM caddy:2-builder AS builder
 
-xcaddy build \
+RUN xcaddy build \
     --with github.com/caddy-dns/digitalocean@master
 
 FROM caddy:2
