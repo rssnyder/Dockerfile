@@ -36,5 +36,5 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ${{ github.repository }}:${{ inputs.tag }}
-            ghcr.io/${{ github.repository }}:${{ inputs.tag }}
+            ${{ github.repository_owner }}//${{ inputs.file }}:${{ inputs.tag }}
+            ghcr.io/${{ github.repository_owner }}/${{ inputs.file }}:${{ inputs.tag }}
