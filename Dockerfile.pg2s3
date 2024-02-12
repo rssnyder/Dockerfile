@@ -12,4 +12,4 @@ FROM postgres
 
 COPY --from=build /app/pg2s3 /bin/pg2s3
 
-CMD [ "/bin/pg2s3" ]
+ENTRYPOINT  [ "/bin/pg2s3" ]
