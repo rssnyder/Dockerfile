@@ -1,4 +1,4 @@
-FROM curlimages/curl as build
+FROM curlimages/curl:8.6.0 as build
 
 ARG ARCH=amd64
 
@@ -8,7 +8,7 @@ RUN curl -L "https://github.com/theandrew168/pg2s3/releases/download/v0.2.0/pg2s
 
 RUN tar -zxf pg2s3.tar.gz
 
-FROM postgres
+FROM postgres:16
 
 COPY --from=build /app/pg2s3 /bin/pg2s3
 
