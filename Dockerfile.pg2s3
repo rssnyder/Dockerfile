@@ -15,4 +15,6 @@ RUN apt-get update \
 
 COPY --from=build /app/pg2s3 /bin/pg2s3
 
+WORKDIR /pg2s3
+
 ENTRYPOINT  [ "/bin/pg2s3" ]
