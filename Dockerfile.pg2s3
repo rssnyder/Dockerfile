@@ -1,0 +1,17 @@
+ARG arch=amd64
+
+FROM curlimages/curl as build
+
+WORKDIR /app
+
+RUN curl -L https://github.com/theandrew168/pg2s3/releases/download/v0.2.0/pg2s3_linux_$arch.tar.gz -o pg2s3_linux.tar.gz
+
+RUN tar -zxf pg2s3_linux.tar.gz
+
+RUN ls
+
+FROM postgres
+
+COPY --from=build /app/pg2s3 /bin/pg2s3
+
+CMD [ "/bin/pg2s3" ]
