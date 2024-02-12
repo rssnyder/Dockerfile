@@ -10,6 +10,9 @@ RUN tar -zxf pg2s3.tar.gz
 
 FROM postgres:16
 
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends ca-certificates
+
 COPY --from=build /app/pg2s3 /bin/pg2s3
 
 ENTRYPOINT  [ "/bin/pg2s3" ]
