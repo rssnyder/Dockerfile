@@ -1,7 +1,7 @@
 FROM ubuntu:22.04
 
 WORKDIR /app
-RUN apt update && apt install curl tar \
+RUN apt update -y && apt install -y curl tar \
   && curl --proto '=https' --tlsv1.2 -fOL https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.91.0/otelcol-contrib_0.91.0_linux_amd64.tar.gz \
   && tar -xvf otelcol-contrib_0.91.0_linux_amd64.tar.gz \
   && rm otelcol-contrib_0.91.0_linux_amd64.tar.gz
