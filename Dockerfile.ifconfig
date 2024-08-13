@@ -1,0 +1,3 @@
+FROM curlimages/curl
+
+ENTRYPOINT while [ 1 ]; do curl ifconfig.co; sleep ${LOOP-10}; done
