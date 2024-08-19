@@ -43,4 +43,3 @@ jobs:
           tags: |
             ${{ github.repository_owner }}/${{ inputs.file }}:${{ inputs.tag }}
             ghcr.io/${{ github.repository_owner }}/${{ inputs.file }}:${{ inputs.tag }}
-            registry.k8s.rileysnyder.dev/${{ github.repository_owner }}/${{ inputs.file }}:${{ inputs.tag }}
