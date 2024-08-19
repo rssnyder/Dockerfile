@@ -3,9 +3,9 @@ FROM debian:latest
 # update base and install deps
 RUN apt-get update && apt-get upgrade -y
 RUN apt install -y \
-    curl jq git zsh\
+    curl jq git zsh \
     apt-transport-https software-properties-common \
-    python3-launchpadlib python3-venv \
+    python3-launchpadlib python3-venv
 
 ## ansible
 RUN add-apt-repository --yes --update ppa:ansible/ansible
@@ -25,11 +25,12 @@ RUN apt-get update && apt-get install -y \
     kubectl \
     ansible
 
+# default user
 RUN useradd -s /usr/bin/zsh -d /home/riley/ -m riley
 USER riley
 WORKDIR /home/riley
 
+# ohmyzsh
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 ENTRYPOINT /bin/zsh
-  
