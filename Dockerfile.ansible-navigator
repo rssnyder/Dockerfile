@@ -1,3 +1,4 @@
 FROM python:3
 
+RUN apt-get update -y && apt-get install libonig-dev -y
 RUN pip install ansible-navigator
