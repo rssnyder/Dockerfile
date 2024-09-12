@@ -43,4 +43,8 @@ WORKDIR /home/riley
 # ohmyzsh
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
+RUN sed -i 's/^ZSH_THEME=.*/ZSH_THEME="gnzh"/' .zshrc \
+  && sed 's/^plugins=.*/plugins=(git kubectl)/' .zshrc \
+  && echo 'source <(kubectl completion zsh)' >> .zshrc
+
 ENTRYPOINT /bin/zsh
